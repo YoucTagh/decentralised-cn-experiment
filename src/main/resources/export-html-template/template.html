@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>DCN Experiment Result</title>
+  </head>
+  <body>
+    <style>
+      h1 {
+        text-align: center;
+        margin: 16px;
+      }
+      table {
+        text-align: center;
+      }
+    </style>
+    <h1>The Experiment Results</h1>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="column">Constraint to fulfil</th>
+          <th scope="column" colspan="2">Metrics</th>
+          <th scope="column">1 - 5</th>
+          <th scope="column">10 - 15</th>
+          <th scope="column">25 - 30</th>
+          <th scope="column">45 - 50</th>
+          <th scope="column">70 - 75</th>
+          <th scope="column">+100</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th rowspan="3" style="vertical-align: middle">
+            An HTML Representation
+          </th>
+          <th rowspan="2" style="vertical-align: middle">
+            # of representations
+          </th>
+          <th>Selected URI</th>
+          <td>${html-selected_0}</td>
+          <td>${html-selected_1}</td>
+          <td>${html-selected_2}</td>
+          <td>${html-selected_3}</td>
+          <td>${html-selected_4}</td>
+          <td>${html-selected_5}</td>
+        </tr>
+        <tr>
+          <th>One Of sameAs URIs</th>
+          <td>${html-sameas_0}</td>
+          <td>${html-sameas_1}</td>
+          <td>${html-sameas_2}</td>
+          <td>${html-sameas_3}</td>
+          <td>${html-sameas_4}</td>
+          <td>${html-sameas_5}</td>
+        </tr>
+        <tr>
+          <th colspan="2">Avg time of response</th>
+          <td>${html-average_0}</td>
+          <td>${html-average_1}</td>
+          <td>${html-average_2}</td>
+          <td>${html-average_3}</td>
+          <td>${html-average_4}</td>
+          <td>${html-average_5}</td>
+        </tr>
+        <tr>
+          <th rowspan="3" style="vertical-align: middle">
+            An RDF Representation (Turtle,RDF+XML …etc)
+          </th>
+          <th rowspan="2" style="vertical-align: middle">
+            # of representations
+          </th>
+          <th>Selected URI</th>
+          <td>${rdf-selected_0}</td>
+          <td>${rdf-selected_1}</td>
+          <td>${rdf-selected_2}</td>
+          <td>${rdf-selected_3}</td>
+          <td>${rdf-selected_4}</td>
+          <td>${rdf-selected_5}</td>
+        </tr>
+        <tr>
+          <th>One Of sameAs URIs</th>
+          <td>${rdf-sameas_0}</td>
+          <td>${rdf-sameas_1}</td>
+          <td>${rdf-sameas_2}</td>
+          <td>${rdf-sameas_3}</td>
+          <td>${rdf-sameas_4}</td>
+          <td>${rdf-sameas_5}</td>
+        </tr>
+        <tr>
+          <th colspan="2">Avg time of response</th>
+          <td>${rdf-average_0}</td>
+          <td>${rdf-average_1}</td>
+          <td>${rdf-average_2}</td>
+          <td>${rdf-average_3}</td>
+          <td>${rdf-average_4}</td>
+          <td>${rdf-average_5}</td>
+        </tr>
+        <tr>
+          <th rowspan="3" style="vertical-align: middle">
+            An RDF Representation that validates a SHACL shape graph
+          </th>
+          <th rowspan="2" style="vertical-align: middle">
+            # of representations
+          </th>
+          <th>Selected URI</th>
+          <td>${shacl-selected_0}</td>
+          <td>${shacl-selected_1}</td>
+          <td>${shacl-selected_2}</td>
+          <td>${shacl-selected_3}</td>
+          <td>${shacl-selected_4}</td>
+          <td>${shacl-selected_5}</td>
+        </tr>
+        <tr>
+          <th>One Of sameAs URIs</th>
+          <td>${shacl-sameas_0}</td>
+          <td>${shacl-sameas_1}</td>
+          <td>${shacl-sameas_2}</td>
+          <td>${shacl-sameas_3}</td>
+          <td>${shacl-sameas_4}</td>
+          <td>${shacl-sameas_5}</td>
+        </tr>
+        <tr>
+          <th colspan="2">Avg time of response</th>
+          <td>${shacl-average_0}</td>
+          <td>${shacl-average_1}</td>
+          <td>${shacl-average_2}</td>
+          <td>${shacl-average_3}</td>
+          <td>${shacl-average_4}</td>
+          <td>${shacl-average_5}</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

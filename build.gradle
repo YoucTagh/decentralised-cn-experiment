@@ -13,15 +13,10 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.projectlombok:lombok:1.18.24'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
 	implementation 'org.apache.jena:jena-shacl:4.4.0'
 
-//	Swagger
-	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+    implementation 'com.velopayments:java-spring-resttemplate:2.32.2'
 }
 
 tasks.named('test') {

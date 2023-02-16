@@ -1,11 +1,8 @@
 package fr.minesstetienne.ci.dcn.service;
 
-import fr.minesstetienne.ci.dcn.dto.RepresentationDetail;
-import fr.minesstetienne.ci.dcn.dto.ResourceDetail;
 import fr.minesstetienne.ci.dcn.dto.ResponseSameAsDTO;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
-import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.http.client.*;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -17,22 +14,13 @@ import java.util.stream.Stream;
 /**
  * @author YoucTagh
  */
-//@Service
 public class SameAsSearchService {
 
-    private final MediaTypeDCNService mediaTypeDCNService;
+    static RestTemplate restTemplate = customRestTemplate();
 
-    public SameAsSearchService(RestTemplateBuilder restTemplateBuilder, MediaTypeDCNService mediaTypeDCNService) {
-//        this.restTemplate = restTemplateBuilder
-//                .setConnectTimeout(Duration.ofSeconds(2))
-//                .setReadTimeout(Duration.ofSeconds(2))
-//                .build();
-        this.mediaTypeDCNService = mediaTypeDCNService;
-    }
 
     public static ResponseSameAsDTO findSameResources(String resourceIRI) {
         RestTemplate restTemplate = new RestTemplate();
-
         String uri = UriComponentsBuilder
                 .newInstance()
                 .scheme("http")
@@ -61,33 +49,42 @@ public class SameAsSearchService {
         return null;
     }
 
-    private ResourceDetail checkRepresentationAvailability(ResponseSameAsDTO responseSameAsDTO, List<MediaType> mediaTypeList) {
-        ResourceDetail resourceDetail = new ResourceDetail()
-                .setMainIri(responseSameAsDTO.getUri())
-                .setNumRepresentations(responseSameAsDTO.getNumDuplicates());
-
-        responseSameAsDTO.getDuplicates().forEach(representationIRI -> {
-            System.out.println(representationIRI);
-            try {
-                ResponseEntity<String> isRepresentationAvailable = mediaTypeDCNService.checkRepresentationIfAvailable(representationIRI, mediaTypeList);
-                RepresentationDetail representationDetail = new RepresentationDetail()
-                        .setIri(representationIRI)
-                        .setStatus(isRepresentationAvailable.getStatusCode())
-                        .setContentType(isRepresentationAvailable.getHeaders().getContentType());
-                resourceDetail.getRepresentationDetails().add(representationDetail);
-            } catch (HttpClientErrorException ex) {
-                resourceDetail.getRepresentationDetails().add(new RepresentationDetail()
-                        .setIri(responseSameAsDTO.getUri())
-                        .setStatus(ex.getStatusCode())
-                        .setContentType(ex.getResponseHeaders().getContentType()));
-            } catch (Exception ex) {
-                resourceDetail.getRepresentationDetails().add(new RepresentationDetail()
-                        .setIri(responseSameAsDTO.getUri())
-                        .setStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-                        .setContentType(MediaType.ALL));
-            }
-        });
-        return resourceDetail;
+    public static boolean checkRepresentationAvailability(String iri, List<MediaType> mediaTypeList) {
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setAccept(mediaTypeList);
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+            ResponseEntity<String> isRepresentationAvailable = restTemplate.exchange(iri, HttpMethod.HEAD, entity, String.class);
+            return isRepresentationAvailable.getStatusCode().equals(HttpStatus.OK)
+                    && UtilService.isMediaTypeContainsInList(isRepresentationAvailable.getHeaders().getContentType(), mediaTypeList);
+        } catch (Exception ex) {
+            return false;
+        }
     }
+
+    public static ResponseEntity checkRepresentationValidity(String iri, List<MediaType> mediaTypeList) {
+        try {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setAccept(mediaTypeList);
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+            ResponseEntity<String> isRepresentationAvailable = restTemplate.exchange(iri, HttpMethod.GET, entity, String.class);
+
+            if(isRepresentationAvailable.getStatusCode().equals(HttpStatus.OK)
+                    && UtilService.isMediaTypeContainsInList(isRepresentationAvailable.getHeaders().getContentType(), mediaTypeList))
+                return isRepresentationAvailable;
+
+            return null;
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+    public static RestTemplate customRestTemplate() {
+        HttpComponentsClientHttpRequestFactory httpRequestFactory = new HttpComponentsClientHttpRequestFactory();
+        httpRequestFactory.setConnectionRequestTimeout(2000);
+        httpRequestFactory.setConnectTimeout(2000);
+        httpRequestFactory.setReadTimeout(2000);
+        return new RestTemplate(httpRequestFactory);
+    }
+
 
 }

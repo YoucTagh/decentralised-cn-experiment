@@ -7,7 +7,6 @@ package fr.minesstetienne.ci.dcn.experiment;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.minesstetienne.ci.dcn.dto.ExperimentData;
 import fr.minesstetienne.ci.dcn.dto.ExperimentResult;
-import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +16,6 @@ import java.nio.file.Paths;
 /**
  * @author YoucTagh
  */
-@Component
 public class Util {
 
     public static boolean exportExperimentData(ExperimentData experimentData) {

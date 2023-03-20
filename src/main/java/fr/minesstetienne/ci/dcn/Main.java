@@ -1,10 +1,8 @@
 package fr.minesstetienne.ci.dcn;
 
+import fr.minesstetienne.ci.dcn.dto.DumpExperimentData;
 import fr.minesstetienne.ci.dcn.dto.ExperimentData;
-import fr.minesstetienne.ci.dcn.experiment.DataScrapingService;
-import fr.minesstetienne.ci.dcn.experiment.ExportResultHTML;
-import fr.minesstetienne.ci.dcn.experiment.LocalExperimentsService;
-import fr.minesstetienne.ci.dcn.experiment.Util;
+import fr.minesstetienne.ci.dcn.experiment.*;
 
 import java.util.Scanner;
 
@@ -17,6 +15,16 @@ public class Main {
         System.out.println("Start scraping and exporting the Data");
         ExperimentData experimentData = DataScrapingService.scrapData();
         boolean isExported = Util.exportExperimentData(experimentData);
+        if (isExported) {
+            System.out.println("Export with success!");
+        }
+        System.out.println("The data has been scraped and exported");
+    }
+
+    public static void scrapAndVisualiseData() {
+        System.out.println("Start scraping and visualising the Data");
+        DumpExperimentData dumpExperimentData = DataDumpScrapingService.scrapData();
+        boolean isExported = Util.exportDumpData(dumpExperimentData);
         if (isExported) {
             System.out.println("Export with success!");
         }
@@ -41,6 +49,7 @@ public class Main {
         System.out.println("1: Scrap and Export Data");
         System.out.println("2: Lunch the Local Experiment");
         System.out.println("3: Create an HTML output from the experiment results");
+        System.out.println("4: Scrap and Visualise Dump Data");
         System.out.println("0: Quit");
         System.out.println();
     }
@@ -68,6 +77,9 @@ public class Main {
                     break;
                 case 3:
                     createAnHTMLOutput();
+                    break;
+                case 4:
+                    scrapAndVisualiseData();
                     break;
             }
 

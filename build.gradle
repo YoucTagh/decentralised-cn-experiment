@@ -2,6 +2,8 @@ plugins {
 	id 'org.springframework.boot' version '2.7.5'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 	id 'java'
+	id 'org.openjfx.javafxplugin' version '0.0.13'
+
 }
 
 group = 'fr.mines-stetienne.ci'
@@ -17,7 +19,14 @@ dependencies {
 	implementation 'org.apache.jena:jena-shacl:4.4.0'
 
     implementation 'com.velopayments:java-spring-resttemplate:2.32.2'
+
 }
+
+javafx {
+	version = "11.0.2"
+	modules = [ 'javafx.controls' ]
+}
+
 
 tasks.named('test') {
 	useJUnitPlatform()

@@ -1,0 +1,98 @@
+{
+  "anHTMLRepresentation": [
+    {
+      "numberOfRepresentationSelectedURI": 5,
+      "numberOfRepresentationSameAsURI": 13,
+      "averageTimeOfExecution": 863
+    },
+    {
+      "numberOfRepresentationSelectedURI": 20,
+      "numberOfRepresentationSameAsURI": 79,
+      "averageTimeOfExecution": 944
+    },
+    {
+      "numberOfRepresentationSelectedURI": 22,
+      "numberOfRepresentationSameAsURI": 78,
+      "averageTimeOfExecution": 845
+    },
+    {
+      "numberOfRepresentationSelectedURI": 31,
+      "numberOfRepresentationSameAsURI": 69,
+      "averageTimeOfExecution": 871
+    },
+    {
+      "numberOfRepresentationSelectedURI": 20,
+      "numberOfRepresentationSameAsURI": 80,
+      "averageTimeOfExecution": 1077
+    },
+    {
+      "numberOfRepresentationSelectedURI": 17,
+      "numberOfRepresentationSameAsURI": 83,
+      "averageTimeOfExecution": 822
+    }
+  ],
+  "anRDFRepresentation": [
+    {
+      "numberOfRepresentationSelectedURI": 53,
+      "numberOfRepresentationSameAsURI": 47,
+      "averageTimeOfExecution": 310
+    },
+    {
+      "numberOfRepresentationSelectedURI": 44,
+      "numberOfRepresentationSameAsURI": 56,
+      "averageTimeOfExecution": 381
+    },
+    {
+      "numberOfRepresentationSelectedURI": 37,
+      "numberOfRepresentationSameAsURI": 63,
+      "averageTimeOfExecution": 657
+    },
+    {
+      "numberOfRepresentationSelectedURI": 40,
+      "numberOfRepresentationSameAsURI": 60,
+      "averageTimeOfExecution": 480
+    },
+    {
+      "numberOfRepresentationSelectedURI": 29,
+      "numberOfRepresentationSameAsURI": 71,
+      "averageTimeOfExecution": 556
+    },
+    {
+      "numberOfRepresentationSelectedURI": 25,
+      "numberOfRepresentationSameAsURI": 75,
+      "averageTimeOfExecution": 393
+    }
+  ],
+  "anRDFValidSHACLRepresentation": [
+    {
+      "numberOfRepresentationSelectedURI": 15,
+      "numberOfRepresentationSameAsURI": 7,
+      "averageTimeOfExecution": 277
+    },
+    {
+      "numberOfRepresentationSelectedURI": 19,
+      "numberOfRepresentationSameAsURI": 17,
+      "averageTimeOfExecution": 344
+    },
+    {
+      "numberOfRepresentationSelectedURI": 15,
+      "numberOfRepresentationSameAsURI": 13,
+      "averageTimeOfExecution": 410
+    },
+    {
+      "numberOfRepresentationSelectedURI": 20,
+      "numberOfRepresentationSameAsURI": 8,
+      "averageTimeOfExecution": 400
+    },
+    {
+      "numberOfRepresentationSelectedURI": 13,
+      "numberOfRepresentationSameAsURI": 8,
+      "averageTimeOfExecution": 460
+    },
+    {
+      "numberOfRepresentationSelectedURI": 11,
+      "numberOfRepresentationSameAsURI": 8,
+      "averageTimeOfExecution": 317
+    }
+  ]
+}

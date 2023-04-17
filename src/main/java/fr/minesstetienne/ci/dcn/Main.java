@@ -45,7 +45,7 @@ public class Main {
 
     private static void printMenu() {
         System.out.println();
-        System.out.println("Please make a choice [0-3]:");
+        System.out.println("Please make a choice [0-4]:");
         System.out.println("1: Scrap and Export Data");
         System.out.println("2: Lunch the Local Experiment");
         System.out.println("3: Create an HTML output from the experiment results");

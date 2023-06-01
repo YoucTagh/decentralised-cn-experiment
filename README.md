@@ -1,6 +1,6 @@
 # Decentralised Content Negotiation Experiments
 
-Experiments for the [DCN Project](https://github.com/YoucTagh/decentralised-cn).
+Experiments for the [DCN Project](https://github.com/YoucTagh/decentralised-cn). The [paper](https://dmkg-workshop.github.io/papers/paper9797.pdf) was presented at Data Management for Knowledge Graphs (DMKG - ESWC 2023)
 
 ### Prerequisites
 * Java 9+

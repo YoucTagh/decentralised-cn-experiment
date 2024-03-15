@@ -3,7 +3,7 @@
 Experiments for the [DCN Project](https://github.com/YoucTagh/decentralised-cn). The [paper](https://dmkg-workshop.github.io/papers/paper9797.pdf) was presented at Data Management for Knowledge Graphs (DMKG - ESWC 2023)
 
 ### Prerequisites
-* Java 9+
+* Java 17+
 
 ### Experiment Reproducibility
 To reproduce the experiment, a main command line interface is displayed when running the [Main](/src/main/java/fr/minesstetienne/ci/dcn/Main.java) class, when launched the following menu is displayed: 

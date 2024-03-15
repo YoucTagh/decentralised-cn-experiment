@@ -210,7 +210,9 @@ public class VisualisationDumpData {
 
     public static void main(String[] args) {
         DumpExperimentData dumpExperimentData = Util.importDumpExperimentData();
-
+        if (dumpExperimentData == null) {
+            return;
+        }
         HashMap<Long, Long> resultMap = new HashMap<>();
 
         dumpExperimentData.getData_1_5000().forEach(responseSameAsDTO -> {

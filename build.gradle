@@ -8,7 +8,7 @@ plugins {
 
 group = 'fr.mines-stetienne.ci'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '9'
+sourceCompatibility = '17'
 
 repositories {
 	mavenCentral()
@@ -17,6 +17,7 @@ repositories {
 dependencies {
 	implementation 'org.projectlombok:lombok:1.18.24'
 	implementation 'org.apache.jena:jena-shacl:4.4.0'
+
 
     implementation 'com.velopayments:java-spring-resttemplate:2.32.2'
 
